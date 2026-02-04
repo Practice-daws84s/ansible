@@ -1,0 +1,12 @@
+- name: create ec2 and r53 records
+  hosts: local
+  connections: local
+  vars:
+    instances:
+    - mysql 
+    - backend
+    - frontend
+  tasks:
+  - name: create ec2 
+    amazon.aws.ec2_instace:
+      name: "{{ instances }}"
